@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "nodomain.freeyourgadget.gadgetbridge.app-mergeMainlineDebugResources-68:/values-en/values-en.xml",
+            "map": [
+                {
+                    "source": "/home/ismael/.gradle/caches/8.14.3/transforms/081e91d18515be2bd023912101f2beac/transformed/SearchPreference-2.7.3/res/values-en/values-en.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,112,185,240,307",
+                        "endColumns": "56,72,54,66,59",
+                        "endOffsets": "107,180,235,302,362"
+                    }
+                }
+            ]
+        }
+    ]
+}
