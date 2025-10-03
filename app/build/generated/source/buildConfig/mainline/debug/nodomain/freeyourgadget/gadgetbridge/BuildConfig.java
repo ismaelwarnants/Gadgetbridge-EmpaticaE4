@@ -11,7 +11,7 @@ public final class BuildConfig {
   public static final int VERSION_CODE = 242;
   public static final String VERSION_NAME = "0.87.1";
   // Field from default config.
-  public static final String GIT_HASH_SHORT = "6077c30";
+  public static final String GIT_HASH_SHORT = "7d43fb69";
   // Field from default config.
   public static final boolean INTERNET_ACCESS = false;
 }

@@ -8069,6 +8069,7 @@ string devicetype_domyos_t540
 string devicetype_dotn_p66d
 string devicetype_earfun_air_pro_4
 string devicetype_earfun_air_s
+string devicetype_empatica_e4
 string devicetype_even_realities_g1
 string devicetype_exrizu_k8
 string devicetype_femometer_vinca2

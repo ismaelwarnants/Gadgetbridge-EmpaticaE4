@@ -1817,6 +1817,9 @@
     <string name="kind_watchface">Watchface</string>
     <string name="kind_app">App</string>
     <string name="devicetype_unknown">Unknown Device</string>
+
+    <string name="devicetype_empatica_e4">Empatica E4</string>
+
     <string name="devicetype_test" translatable="false">Test Device</string>
     <string name="add_test_device">Add test device</string>
     <string name="devicetype_pebble" translatable="false">Pebble</string>

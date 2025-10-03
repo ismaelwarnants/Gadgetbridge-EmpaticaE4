@@ -8068,6 +8068,7 @@ int string devicetype_domyos_t540 0x7f12043a
 int string devicetype_dotn_p66d 0x7f12043b
 int string devicetype_earfun_air_pro_4 0x7f12043c
 int string devicetype_earfun_air_s 0x7f12043d
+int string devicetype_empatica_e4 0x7f121213
 int string devicetype_even_realities_g1 0x7f12043e
 int string devicetype_exrizu_k8 0x7f12043f
 int string devicetype_femometer_vinca2 0x7f120440
