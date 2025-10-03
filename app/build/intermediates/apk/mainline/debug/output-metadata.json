@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "nodomain.freeyourgadget.gadgetbridge",
+  "variantName": "mainlineDebug",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 242,
+      "versionName": "0.87.1",
+      "outputFile": "app-mainline-debug.apk"
+    }
+  ],
+  "elementType": "File",
+  "minSdkVersionForDexing": 24
+}

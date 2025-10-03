@@ -1,0 +1,2430 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="nodomain.freeyourgadget.gadgetbridge"
+4    android:versionCode="242"
+5    android:versionName="0.87.1" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+9        android:targetSdkVersion="34" />
+10
+11    <!--
+12        Comment in for testing Pebble Emulator
+13        <uses-permission android:name="android.permission.INTERNET" />
+14    -->
+15    <!-- Used for Bluetooth access -->
+16    <!--
+17        Request legacy Bluetooth permissions on older devices.
+18        #5053 - keep the permission even on Android 12 and above
+19    -->
+20    <uses-permission android:name="android.permission.BLUETOOTH" />
+20-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:14:5-104
+20-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:14:22-65
+21    <uses-permission
+21-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:15:5-16:37
+22        android:name="android.permission.BLUETOOTH_ADMIN"
+22-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:15:22-71
+23        android:maxSdkVersion="30" />
+23-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:16:9-35
+24    <!-- Needed to looks for Bluetooth devices. -->
+25    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+25-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:18:5-73
+25-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:18:22-70
+26    <!-- Needed to communicate with already-paired Bluetooth devices. -->
+27    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+27-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:20:5-76
+27-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:20:22-73
+28    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+28-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:21:5-81
+28-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:21:22-78
+29
+30    <!-- Since Android 10 -->
+31    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+31-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:24:5-79
+31-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:24:22-76
+32    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+32-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:25:5-85
+32-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:25:22-82
+33    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+33-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:27:5-72
+33-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:27:22-69
+34    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+34-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:28:5-75
+34-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:28:22-72
+35    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+35-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:29:5-81
+35-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:29:22-78
+36    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+36-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:30:5-85
+36-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:30:22-82
+37    <uses-permission android:name="android.permission.CALL_PHONE" />
+37-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:31:5-69
+37-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:31:22-66
+38    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+38-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:32:5-77
+38-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:32:22-74
+39    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+39-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:33:5-70
+39-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:33:22-67
+40    <uses-permission android:name="android.permission.SEND_SMS" />
+40-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:34:5-67
+40-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:34:22-64
+41    <uses-permission android:name="android.permission.READ_CONTACTS" />
+41-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:35:5-72
+41-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:35:22-69
+42
+43    <!-- Schedule exact alarms (eg. for DST changes) -->
+44    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+44-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:38:5-79
+44-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:38:22-76
+45
+46    <!-- Take wake locks (e.g. for time sync) -->
+47    <uses-permission android:name="android.permission.WAKE_LOCK" />
+47-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:41:5-68
+47-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:41:22-65
+48
+49    <!--
+50        Necessary for asking the user to disable battery optimizations.
+51        GB falls under the acceptable use cases documented here:
+52        https://developer.android.com/training/monitoring-device-state/doze-standby.html#exemption-cases
+53    -->
+54    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+54-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:48:5-94
+54-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:48:22-92
+55
+56    <!-- Read loyalty cards from Catima -->
+57    <uses-permission android:name="me.hackerchick.catima.READ_CARDS" />
+57-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:51:5-71
+57-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:51:22-69
+58    <uses-permission android:name="me.hackerchick.catima.debug.READ_CARDS" />
+58-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:52:5-77
+58-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:52:22-75
+59    <uses-permission
+59-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:54:5-55:38
+60        android:name="android.permission.READ_EXTERNAL_STORAGE"
+60-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:54:22-77
+61        android:maxSdkVersion="32" />
+61-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:55:9-35
+62    <uses-permission android:name="android.permission.READ_CALENDAR" />
+62-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:56:5-72
+62-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:56:22-69
+63    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+63-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:57:5-59:47
+63-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:58:9-64
+64
+65    <!--
+66        Allow Gadgetbridge to run Termux commands. Permission must be granted manually through the
+67        permissions page in Android settings.
+68        More information: https://github.com/termux/termux-app/wiki/RUN_COMMAND-Intent
+69    -->
+70    <uses-permission android:name="com.termux.permission.RUN_COMMAND" />
+70-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:66:5-72
+70-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:66:22-70
+71
+72    <!-- Used for background service -->
+73    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+73-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:69:5-81
+73-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:69:22-78
+74    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+74-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:70:5-77
+74-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:70:22-74
+75    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+75-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:71:5-94
+75-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:71:22-91
+76    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+76-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:72:5-87
+76-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:72:22-84
+77    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+77-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:73:5-89
+77-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:73:22-86
+78    <uses-permission android:name="android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND" />
+78-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:74:5-94
+78-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:74:22-91
+79    <uses-permission android:name="android.permission.REQUEST_OBSERVE_COMPANION_DEVICE_PRESENCE" />
+79-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:75:5-100
+79-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:75:22-97
+80
+81    <!-- Used for reverse find device -->
+82    <uses-permission android:name="android.permission.VIBRATE" />
+82-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:78:5-66
+82-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:78:22-63
+83
+84    <!-- Used for weather provider access -->
+85    <uses-permission android:name="cyanogenmod.permission.ACCESS_WEATHER_MANAGER" />
+85-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:81:5-85
+85-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:81:22-82
+86    <uses-permission android:name="cyanogenmod.permission.READ_WEATHER" />
+86-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:82:5-75
+86-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:82:22-72
+87    <uses-permission android:name="lineageos.permission.ACCESS_WEATHER_MANAGER" />
+87-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:83:5-83
+87-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:83:22-80
+88    <uses-permission android:name="lineageos.permission.READ_WEATHER" />
+88-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:84:5-73
+88-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:84:22-70
+89    <uses-permission android:name="org.omnirom.omnijaws.READ_WEATHER" />
+89-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:85:5-73
+89-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:85:22-70
+90
+91    <!-- Used for starting activities from the background with intents -->
+92    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+92-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:88:5-78
+92-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:88:22-75
+93    <uses-permission android:name="android.permission.CAMERA" />
+93-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:90:5-64
+93-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:90:22-62
+94
+95    <!--
+96    SDK 30 & Android 11 - Used for getting app name from notifications, and for starting
+97    services from other packages via intents, when targeting Android API level 30 or later
+98    on devices running Android 11 or later.
+99    https://developer.android.com/training/package-visibility
+100    https://support.google.com/googleplay/android-developer/answer/10158779?hl=en#zippy=%2Cpermitted-uses-of-the-query-all-packages-permission%2Cexceptions
+101    -->
+102    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+102-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:99:5-100:53
+102-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:99:22-74
+103
+104    <!-- Needed to show notification with targetSdkVersion 33 with Android 13 -->
+105    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+105-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:103:5-76
+105-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:103:22-74
+106
+107    <uses-feature
+107-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:105:5-107:35
+108        android:name="android.hardware.bluetooth"
+108-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:106:9-50
+109        android:required="true" />
+109-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:107:9-32
+110    <uses-feature
+110-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:108:5-110:36
+111        android:name="android.hardware.bluetooth_le"
+111-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:109:9-53
+112        android:required="false" />
+112-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:110:9-33
+113    <uses-feature
+113-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:111:5-113:36
+114        android:name="android.hardware.telephony"
+114-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:112:9-50
+115        android:required="false" />
+115-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:113:9-33
+116    <uses-feature
+116-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:114:5-116:36
+117        android:name="android.software.companion_device_setup"
+117-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:115:9-63
+118        android:required="false" />
+118-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:116:9-33
+119    <uses-feature
+119-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:117:5-119:36
+120        android:name="android.hardware.camera"
+120-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:118:9-47
+121        android:required="false" />
+121-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:119:9-33
+122
+123    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+123-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:24:5-79
+123-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:24:22-76
+124
+125    <permission
+125-->[androidx.core:core:1.17.0] /home/ismael/.gradle/caches/8.14.3/transforms/1da19ddfb0db7e6722c2b847ec2413d6/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
+126        android:name="nodomain.freeyourgadget.gadgetbridge.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+126-->[androidx.core:core:1.17.0] /home/ismael/.gradle/caches/8.14.3/transforms/1da19ddfb0db7e6722c2b847ec2413d6/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
+127        android:protectionLevel="signature" />
+127-->[androidx.core:core:1.17.0] /home/ismael/.gradle/caches/8.14.3/transforms/1da19ddfb0db7e6722c2b847ec2413d6/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
+128
+129    <uses-permission android:name="nodomain.freeyourgadget.gadgetbridge.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+129-->[androidx.core:core:1.17.0] /home/ismael/.gradle/caches/8.14.3/transforms/1da19ddfb0db7e6722c2b847ec2413d6/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
+129-->[androidx.core:core:1.17.0] /home/ismael/.gradle/caches/8.14.3/transforms/1da19ddfb0db7e6722c2b847ec2413d6/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
+130
+131    <application
+131-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:121:5-1021:19
+132        android:name="nodomain.freeyourgadget.gadgetbridge.GBApplication"
+132-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:122:9-38
+133        android:allowBackup="false"
+133-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:123:9-36
+134        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+134-->[androidx.core:core:1.17.0] /home/ismael/.gradle/caches/8.14.3/transforms/1da19ddfb0db7e6722c2b847ec2413d6/transformed/core-1.17.0/AndroidManifest.xml:28:18-86
+135        android:debuggable="true"
+136        android:extractNativeLibs="false"
+137        android:fullBackupContent="false"
+137-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:125:9-42
+138        android:icon="@mipmap/ic_launcher"
+138-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:126:9-43
+139        android:label="@string/app_name"
+139-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:127:9-41
+140        android:networkSecurityConfig="@xml/network_security_config"
+140-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:128:9-69
+141        android:requestLegacyExternalStorage="true"
+141-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:130:9-52
+142        android:roundIcon="@mipmap/ic_launcher_round"
+142-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:129:9-54
+143        android:supportsRtl="true"
+143-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:124:9-35
+144        android:testOnly="true"
+145        android:theme="@style/GadgetbridgeTheme" >
+145-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:131:9-49
+146        <receiver
+146-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:133:9-150:20
+147            android:name="nodomain.freeyourgadget.gadgetbridge.externalevents.sleepasandroid.SleepAsAndroidReceiver"
+147-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:134:13-81
+148            android:enabled="true"
+148-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:135:13-35
+149            android:exported="true" >
+149-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:136:13-36
+150            <intent-filter>
+150-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:137:13-149:29
+151                <action android:name="com.urbandroid.sleep.watch.START_TRACKING" />
+151-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:138:17-84
+151-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:138:25-81
+152                <action android:name="com.urbandroid.sleep.watch.STOP_TRACKING" />
+152-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:139:17-83
+152-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:139:25-80
+153                <action android:name="com.urbandroid.sleep.watch.SET_PAUSE" />
+153-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:140:17-79
+153-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:140:25-76
+154                <action android:name="com.urbandroid.sleep.watch.SET_SUSPENDED" />
+154-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:141:17-83
+154-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:141:25-80
+155                <action android:name="com.urbandroid.sleep.watch.SET_BATCH_SIZE" />
+155-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:142:17-84
+155-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:142:25-81
+156                <action android:name="com.urbandroid.sleep.watch.START_ALARM" />
+156-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:143:17-81
+156-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:143:25-78
+157                <action android:name="com.urbandroid.sleep.watch.STOP_ALARM" />
+157-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:144:17-80
+157-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:144:25-77
+158                <action android:name="com.urbandroid.sleep.watch.UPDATE_ALARM" />
+158-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:145:17-82
+158-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:145:25-79
+159                <action android:name="com.urbandroid.sleep.watch.SHOW_NOTIFICATION" />
+159-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:146:17-87
+159-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:146:25-84
+160                <action android:name="com.urbandroid.sleep.watch.HINT" />
+160-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:147:17-74
+160-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:147:25-71
+161                <action android:name="com.urbandroid.sleep.watch.CHECK_CONNECTED" />
+161-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:148:17-85
+161-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:148:25-82
+162            </intent-filter>
+163        </receiver>
+164
+165        <activity
+165-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:151:9-164:20
+166            android:name="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2"
+166-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:152:13-55
+167            android:exported="true"
+167-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:156:13-36
+168            android:label="@string/title_activity_controlcenter"
+168-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:153:13-65
+169            android:launchMode="singleTop"
+169-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:155:13-43
+170            android:theme="@style/SplashTheme" >
+170-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:154:13-47
+171            <intent-filter>
+171-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:157:13-163:29
+172                <category android:name="android.intent.category.DEFAULT" />
+172-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:17-76
+172-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:27-73
+173
+174                <action android:name="android.intent.action.MAIN" />
+174-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:160:17-69
+174-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:160:25-66
+175
+176                <category android:name="android.intent.category.LAUNCHER" />
+176-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:162:17-77
+176-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:162:27-74
+177            </intent-filter>
+178        </activity>
+179        <activity
+179-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:165:9-168:72
+180            android:name="nodomain.freeyourgadget.gadgetbridge.activities.welcome.WelcomeActivity"
+180-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:166:13-63
+181            android:label="@string/first_start_welcome_title"
+181-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:167:13-62
+182            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+182-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:168:13-69
+183        <activity
+183-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:169:9-172:72
+184            android:name="nodomain.freeyourgadget.gadgetbridge.activities.PermissionsActivity"
+184-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:170:13-59
+185            android:label="@string/first_start_permissions_title"
+185-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:171:13-66
+186            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+186-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:172:13-69
+187        <activity
+187-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:173:9-176:72
+188            android:name="nodomain.freeyourgadget.gadgetbridge.activities.SettingsActivity"
+188-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:174:13-56
+189            android:label="@string/title_activity_settings"
+189-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:175:13-60
+190            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+190-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:176:13-69
+191        <activity
+191-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:177:9-180:73
+192            android:name="nodomain.freeyourgadget.gadgetbridge.activities.DashboardPreferencesActivity"
+192-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:178:13-68
+193            android:label="@string/dashboard_settings"
+193-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:179:13-55
+194            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.SettingsActivity" />
+194-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:180:13-70
+195        <activity
+195-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:181:9-184:73
+196            android:name="nodomain.freeyourgadget.gadgetbridge.activities.maps.MapsSettingsActivity"
+196-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:182:13-65
+197            android:label="@string/maps_settings"
+197-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:183:13-50
+198            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.SettingsActivity" />
+198-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:184:13-70
+199        <activity
+199-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:185:9-188:73
+200            android:name="nodomain.freeyourgadget.gadgetbridge.activities.automations.AutomationsSettingsActivity"
+200-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:186:13-79
+201            android:label="@string/pref_header_automations"
+201-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:187:13-60
+202            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.SettingsActivity" />
+202-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:188:13-70
+203        <activity
+203-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:189:9-192:73
+204            android:name="nodomain.freeyourgadget.gadgetbridge.activities.automations.AutoExportDbSettingsActivity"
+204-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:190:13-80
+205            android:label="@string/pref_header_auto_export_db"
+205-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:191:13-63
+206            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.SettingsActivity" />
+206-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:192:13-70
+207        <activity
+207-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:193:9-196:73
+208            android:name="nodomain.freeyourgadget.gadgetbridge.activities.automations.AutoExportZipSettingsActivity"
+208-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:194:13-81
+209            android:label="@string/pref_header_auto_export_zip"
+209-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:195:13-64
+210            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.SettingsActivity" />
+210-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:196:13-70
+211        <activity
+211-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:197:9-200:73
+212            android:name="nodomain.freeyourgadget.gadgetbridge.activities.maps.MapsTrackActivity"
+212-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:198:13-62
+213            android:label="@string/maps"
+213-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:199:13-41
+214            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.SettingsActivity" />
+214-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:200:13-70
+215        <activity
+215-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:201:9-205:88
+216            android:name="nodomain.freeyourgadget.gadgetbridge.activities.workouts.charts.WorkoutChartsActivity"
+216-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:202:13-77
+217            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|layoutDirection|uiMode"
+217-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:204:13-106
+218            android:label="@string/workout_charts"
+218-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:203:13-51
+219            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.workouts.WorkoutDetailsActivity" />
+219-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:205:13-85
+220        <activity
+220-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:206:9-209:73
+221            android:name="nodomain.freeyourgadget.gadgetbridge.activities.SleepAsAndroidPreferencesActivity"
+221-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:207:13-73
+222            android:label="@string/sleepasandroid_settings"
+222-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:208:13-60
+223            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.SettingsActivity" />
+223-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:209:13-70
+224        <activity
+224-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:210:9-213:85
+225            android:name="nodomain.freeyourgadget.gadgetbridge.activities.AboutUserPreferencesActivity"
+225-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:211:13-68
+226            android:label="@string/activity_prefs_about_you"
+226-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:212:13-61
+227            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.AboutUserPreferencesActivity" />
+227-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:213:13-82
+228        <activity
+228-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:214:9-217:89
+229            android:name="nodomain.freeyourgadget.gadgetbridge.activities.charts.ChartsPreferencesActivity"
+229-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:215:13-72
+230            android:label="@string/activity_prefs_charts"
+230-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:216:13-58
+231            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.charts.ChartsPreferencesActivity" />
+231-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:217:13-86
+232        <activity
+232-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:218:9-221:79
+233            android:name="nodomain.freeyourgadget.gadgetbridge.activities.files.FileManagerActivity"
+233-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:219:13-65
+234            android:label="@string/activity_data_management_directory_content_title"
+234-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:220:13-85
+235            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.DataManagementActivity" />
+235-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:221:13-76
+236        <activity
+236-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:222:9-225:55
+237            android:name="nodomain.freeyourgadget.gadgetbridge.activities.fit.FitViewerActivity"
+237-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:223:13-61
+238            android:exported="true"
+238-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:224:13-36
+239            android:label="@string/fit_file_viewer" />
+239-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:225:13-52
+240        <activity
+240-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:226:9-229:79
+241            android:name="nodomain.freeyourgadget.gadgetbridge.activities.BackupRestoreProgressActivity"
+241-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:227:13-69
+242            android:label="@string/activity_db_management_backup_restore_label"
+242-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:228:13-80
+243            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.DataManagementActivity" />
+243-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:229:13-76
+244        <activity
+244-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:230:9-233:73
+245            android:name="nodomain.freeyourgadget.gadgetbridge.activities.discovery.DiscoveryPairingPreferenceActivity"
+245-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:231:13-84
+246            android:label="@string/activity_prefs_discovery_pairing"
+246-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:232:13-69
+247            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.SettingsActivity" />
+247-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:233:13-70
+248        <activity
+248-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:234:9-237:94
+249            android:name="nodomain.freeyourgadget.gadgetbridge.activities.loyaltycards.LoyaltyCardsSettingsActivity"
+249-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:235:13-81
+250            android:label="@string/loyalty_cards"
+250-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:236:13-50
+251            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.devicesettings.DeviceSettingsActivity" />
+251-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:237:13-91
+252        <activity
+252-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:238:9-241:94
+253            android:name="nodomain.freeyourgadget.gadgetbridge.activities.audiorecordings.AudioRecordingsActivity"
+253-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:239:13-79
+254            android:label="@string/audio_recordings"
+254-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:240:13-53
+255            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.devicesettings.DeviceSettingsActivity" />
+255-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:241:13-91
+256        <activity
+256-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:242:9-245:94
+257            android:name="nodomain.freeyourgadget.gadgetbridge.devices.garmin.GarminRealtimeSettingsActivity"
+257-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:243:13-74
+258            android:label="@string/loading"
+258-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:244:13-44
+259            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.devicesettings.DeviceSettingsActivity" />
+259-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:245:13-91
+260        <activity
+260-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:246:9-249:94
+261            android:name="nodomain.freeyourgadget.gadgetbridge.devices.huawei.ui.HuaweiStressCalibrationActivity"
+261-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:247:13-78
+262            android:label="@string/huawei_stress_calibrate"
+262-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:248:13-60
+263            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.devicesettings.DeviceSettingsActivity" />
+263-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:249:13-91
+264        <activity
+264-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:250:9-253:94
+265            android:name="nodomain.freeyourgadget.gadgetbridge.activities.NotificationsAppIconUploadActivity"
+265-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:251:13-74
+266            android:label="@string/notifications_app_icon_upload"
+266-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:252:13-66
+267            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.devicesettings.DeviceSettingsActivity" />
+267-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:253:13-91
+268        <activity
+268-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:254:9-257:72
+269            android:name="nodomain.freeyourgadget.gadgetbridge.activities.workouts.WorkoutListActivity"
+269-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:255:13-68
+270            android:label="@string/activity_summaries"
+270-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:256:13-55
+271            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+271-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:257:13-69
+272        <activity
+272-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:258:9-262:72
+273            android:name="nodomain.freeyourgadget.gadgetbridge.activities.appmanager.AppManagerActivity"
+273-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:259:13-69
+274            android:label="@string/title_activity_appmanager"
+274-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:260:13-62
+275            android:launchMode="singleTop"
+275-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:261:13-43
+276            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+276-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:262:13-69
+277        <activity
+277-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:263:9-266:73
+278            android:name="nodomain.freeyourgadget.gadgetbridge.activities.musicmanager.MusicManagerActivity"
+278-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:264:13-73
+279            android:label="@string/title_activity_musicmanager"
+279-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:265:13-64
+280            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.SettingsActivity" />
+280-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:266:13-70
+281        <activity
+281-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:267:9-270:73
+282            android:name="nodomain.freeyourgadget.gadgetbridge.activities.AppBlacklistActivity"
+282-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:268:13-60
+283            android:label="@string/title_activity_notification_management"
+283-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:269:13-75
+284            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.SettingsActivity" />
+284-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:270:13-70
+285        <activity
+285-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:271:9-274:73
+286            android:name="nodomain.freeyourgadget.gadgetbridge.activities.CalBlacklistActivity"
+286-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:272:13-60
+287            android:label="@string/title_activity_calblacklist"
+287-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:273:13-64
+288            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.SettingsActivity" />
+288-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:274:13-70
+289        <activity
+289-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:275:9-278:72
+290            android:name="nodomain.freeyourgadget.gadgetbridge.devices.vesc.VescControlActivity"
+290-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:276:13-61
+291            android:label="@string/devicetype_vesc"
+291-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:277:13-52
+292            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+292-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:278:13-69
+293        <activity
+293-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:279:9-282:72
+294            android:name="nodomain.freeyourgadget.gadgetbridge.devices.idasen.IdasenControlActivity"
+294-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:280:13-65
+295            android:label="@string/devicetype_idasen"
+295-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:281:13-54
+296            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+296-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:282:13-69
+297        <activity
+297-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:283:9-286:72
+298            android:name="nodomain.freeyourgadget.gadgetbridge.devices.ultrahuman.UltrahumanBreathingActivity"
+298-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:284:13-75
+299            android:label="@string/devicetype_ultrahuma_ring_air"
+299-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:285:13-66
+300            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+300-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:286:13-69
+301        <activity
+301-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:287:9-290:72
+302            android:name="nodomain.freeyourgadget.gadgetbridge.devices.generic_scale.GenericWeightScaleMeasurementActivity"
+302-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:288:13-88
+303            android:label="@string/devicetype_generic_weight_scale"
+303-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:289:13-68
+304            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+304-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:290:13-69
+305        <activity
+305-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:291:9-294:72
+306            android:name="nodomain.freeyourgadget.gadgetbridge.devices.thermalprinter.SendToPrinterActivity"
+306-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:292:13-73
+307            android:label="@string/devicetype_generic_thermal_printer"
+307-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:293:13-71
+308            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+308-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:294:13-69
+309        <activity
+309-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:295:9-298:72
+310            android:name="nodomain.freeyourgadget.gadgetbridge.activities.install.FwAppInstallerActivity"
+310-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:296:13-70
+311            android:label="@string/title_activity_fw_app_insaller"
+311-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:297:13-67
+312            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+312-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:298:13-69
+313        <activity
+313-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:299:9-302:72
+314            android:name="nodomain.freeyourgadget.gadgetbridge.activities.install.GpxRouteInstallerActivity"
+314-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:300:13-73
+315            android:label="@string/title_activity_gps_track_installer"
+315-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:301:13-71
+316            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+316-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:302:13-69
+317        <activity
+317-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:303:9-523:20
+318            android:name="nodomain.freeyourgadget.gadgetbridge.activities.install.FileInstallerActivity"
+318-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:304:13-69
+319            android:exported="true"
+319-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:307:13-36
+320            android:label="@string/title_activity_file_installer"
+320-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:305:13-66
+321            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" >
+321-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:306:13-69
+322            <intent-filter>
+322-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:308:13-401:29
+323                <action android:name="android.intent.action.VIEW" />
+323-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:309:17-69
+323-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:309:25-66
+324
+325                <category android:name="android.intent.category.DEFAULT" />
+325-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:17-76
+325-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:27-73
+326
+327                <data android:mimeType="*/*" />
+327-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+327-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:23-45
+328                <!-- needed for aosp-derived ROMs? -->
+329
+330                <data android:host="*" />
+330-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+330-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:316:23-39
+331                <data android:scheme="file" />
+331-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+331-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:317:23-44
+332
+333                <!-- as seen on openkeychain repo: https://github.com/open-keychain/open-keychain/blob/master/OpenKeychain/src/main/AndroidManifest.xml -->
+334
+335                <data android:pathPattern="/.*\\.fw" />
+335-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+335-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+336                <data android:pathPattern="/.*\\..*\\.fw" />
+336-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+336-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+337                <data android:pathPattern="/.*\\..*\\..*\\.fw" />
+337-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+337-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+338                <data android:pathPattern="/.*\\..*\\..*\\..*\\.fw" />
+338-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+338-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+339                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.fw" />
+339-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+339-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+340                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.fw" />
+340-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+340-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+341                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.fw" />
+341-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+341-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+342                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.fw" />
+342-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+342-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+343                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.fw" />
+343-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+343-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+344                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.fw" />
+344-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+344-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+345                <data android:pathPattern="/.*\\.ft.en" />
+345-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+345-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+346                <data android:pathPattern="/.*\\..*\\.ft.en" />
+346-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+346-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+347                <data android:pathPattern="/.*\\..*\\..*\\.ft.en" />
+347-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+347-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+348                <data android:pathPattern="/.*\\..*\\..*\\..*\\.ft.en" />
+348-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+348-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+349                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.ft.en" />
+349-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+349-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+350                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.ft.en" />
+350-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+350-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+351                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft.en" />
+351-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+351-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+352                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft.en" />
+352-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+352-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+353                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft.en" />
+353-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+353-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+354                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft.en" />
+354-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+354-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+355                <data android:pathPattern="/.*\\.ft" />
+355-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+355-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+356                <data android:pathPattern="/.*\\..*\\.ft" />
+356-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+356-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+357                <data android:pathPattern="/.*\\..*\\..*\\.ft" />
+357-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+357-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+358                <data android:pathPattern="/.*\\..*\\..*\\..*\\.ft" />
+358-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+358-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+359                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.ft" />
+359-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+359-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+360                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.ft" />
+360-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+360-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+361                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft" />
+361-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+361-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+362                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft" />
+362-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+362-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+363                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft" />
+363-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+363-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+364                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft" />
+364-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+364-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+365                <data android:pathPattern="/.*\\.res" />
+365-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+365-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+366                <data android:pathPattern="/.*\\..*\\.res" />
+366-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+366-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+367                <data android:pathPattern="/.*\\..*\\..*\\.res" />
+367-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+367-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+368                <data android:pathPattern="/.*\\..*\\..*\\..*\\.res" />
+368-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+368-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+369                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.res" />
+369-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+369-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+370                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.res" />
+370-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+370-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+371                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.res" />
+371-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+371-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+372                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.res" />
+372-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+372-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+373                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.res" />
+373-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+373-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+374                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.res" />
+374-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+374-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+375                <data android:pathPattern="/.*\\.gps" />
+375-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+375-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+376                <data android:pathPattern="/.*\\..*\\.gps" />
+376-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+376-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+377                <data android:pathPattern="/.*\\..*\\..*\\.gps" />
+377-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+377-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+378                <data android:pathPattern="/.*\\..*\\..*\\..*\\.gps" />
+378-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+378-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+379                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.gps" />
+379-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+379-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+380                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.gps" />
+380-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+380-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+381                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.gps" />
+381-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+381-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+382                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.gps" />
+382-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+382-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+383                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.gps" />
+383-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+383-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+384                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.gps" />
+384-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+384-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+385                <data android:pathPattern="/.*\\.pbw" />
+385-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+385-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+386                <data android:pathPattern="/.*\\..*\\.pbw" />
+386-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+386-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+387                <data android:pathPattern="/.*\\..*\\..*\\.pbw" />
+387-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+387-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+388                <data android:pathPattern="/.*\\..*\\..*\\..*\\.pbw" />
+388-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+388-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+389                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.pbw" />
+389-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+389-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+390                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.pbw" />
+390-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+390-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+391                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbw" />
+391-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+391-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+392                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbw" />
+392-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+392-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+393                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbw" />
+393-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+393-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+394                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbw" />
+394-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+394-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+395                <data android:pathPattern="/.*\\.pbz" />
+395-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+395-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+396                <data android:pathPattern="/.*\\..*\\.pbz" />
+396-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+396-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+397                <data android:pathPattern="/.*\\..*\\..*\\.pbz" />
+397-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+397-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+398                <data android:pathPattern="/.*\\..*\\..*\\..*\\.pbz" />
+398-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+398-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+399                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.pbz" />
+399-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+399-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+400                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.pbz" />
+400-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+400-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+401                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbz" />
+401-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+401-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+402                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbz" />
+402-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+402-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+403                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbz" />
+403-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+403-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+404                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbz" />
+404-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+404-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+405                <data android:pathPattern="/.*\\.pbl" />
+405-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+405-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+406                <data android:pathPattern="/.*\\..*\\.pbl" />
+406-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+406-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+407                <data android:pathPattern="/.*\\..*\\..*\\.pbl" />
+407-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+407-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+408                <data android:pathPattern="/.*\\..*\\..*\\..*\\.pbl" />
+408-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+408-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+409                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.pbl" />
+409-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+409-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+410                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.pbl" />
+410-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+410-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+411                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbl" />
+411-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+411-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+412                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbl" />
+412-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+412-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+413                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbl" />
+413-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+413-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+414                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbl" />
+414-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+414-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+415            </intent-filter>
+416            <intent-filter>
+416-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:402:13-494:29
+417                <action android:name="android.intent.action.VIEW" />
+417-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:309:17-69
+417-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:309:25-66
+418
+419                <category android:name="android.intent.category.DEFAULT" />
+419-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:17-76
+419-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:27-73
+420
+421                <!-- no mimeType filter, needed for CM-derived ROMs? -->
+422
+423                <data android:host="*" />
+423-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+423-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:316:23-39
+424                <data android:scheme="file" />
+424-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+424-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:317:23-44
+425
+426                <!-- as seen on openkeychain repo: https://github.com/open-keychain/open-keychain/blob/master/OpenKeychain/src/main/AndroidManifest.xml -->
+427
+428                <data android:pathPattern="/.*\\.fw" />
+428-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+428-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+429                <data android:pathPattern="/.*\\..*\\.fw" />
+429-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+429-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+430                <data android:pathPattern="/.*\\..*\\..*\\.fw" />
+430-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+430-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+431                <data android:pathPattern="/.*\\..*\\..*\\..*\\.fw" />
+431-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+431-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+432                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.fw" />
+432-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+432-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+433                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.fw" />
+433-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+433-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+434                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.fw" />
+434-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+434-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+435                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.fw" />
+435-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+435-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+436                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.fw" />
+436-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+436-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+437                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.fw" />
+437-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+437-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+438                <data android:pathPattern="/.*\\.ft.en" />
+438-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+438-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+439                <data android:pathPattern="/.*\\..*\\.ft.en" />
+439-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+439-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+440                <data android:pathPattern="/.*\\..*\\..*\\.ft.en" />
+440-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+440-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+441                <data android:pathPattern="/.*\\..*\\..*\\..*\\.ft.en" />
+441-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+441-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+442                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.ft.en" />
+442-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+442-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+443                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.ft.en" />
+443-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+443-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+444                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft.en" />
+444-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+444-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+445                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft.en" />
+445-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+445-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+446                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft.en" />
+446-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+446-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+447                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft.en" />
+447-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+447-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+448                <data android:pathPattern="/.*\\.ft" />
+448-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+448-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+449                <data android:pathPattern="/.*\\..*\\.ft" />
+449-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+449-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+450                <data android:pathPattern="/.*\\..*\\..*\\.ft" />
+450-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+450-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+451                <data android:pathPattern="/.*\\..*\\..*\\..*\\.ft" />
+451-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+451-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+452                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.ft" />
+452-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+452-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+453                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.ft" />
+453-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+453-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+454                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft" />
+454-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+454-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+455                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft" />
+455-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+455-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+456                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft" />
+456-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+456-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+457                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.ft" />
+457-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+457-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+458                <data android:pathPattern="/.*\\.res" />
+458-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+458-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+459                <data android:pathPattern="/.*\\..*\\.res" />
+459-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+459-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+460                <data android:pathPattern="/.*\\..*\\..*\\.res" />
+460-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+460-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+461                <data android:pathPattern="/.*\\..*\\..*\\..*\\.res" />
+461-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+461-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+462                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.res" />
+462-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+462-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+463                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.res" />
+463-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+463-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+464                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.res" />
+464-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+464-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+465                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.res" />
+465-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+465-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+466                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.res" />
+466-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+466-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+467                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.res" />
+467-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+467-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+468                <data android:pathPattern="/.*\\.gps" />
+468-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+468-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+469                <data android:pathPattern="/.*\\..*\\.gps" />
+469-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+469-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+470                <data android:pathPattern="/.*\\..*\\..*\\.gps" />
+470-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+470-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+471                <data android:pathPattern="/.*\\..*\\..*\\..*\\.gps" />
+471-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+471-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+472                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.gps" />
+472-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+472-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+473                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.gps" />
+473-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+473-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+474                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.gps" />
+474-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+474-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+475                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.gps" />
+475-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+475-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+476                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.gps" />
+476-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+476-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+477                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.gps" />
+477-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+477-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+478                <data android:pathPattern="/.*\\.pbw" />
+478-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+478-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+479                <data android:pathPattern="/.*\\..*\\.pbw" />
+479-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+479-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+480                <data android:pathPattern="/.*\\..*\\..*\\.pbw" />
+480-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+480-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+481                <data android:pathPattern="/.*\\..*\\..*\\..*\\.pbw" />
+481-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+481-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+482                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.pbw" />
+482-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+482-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+483                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.pbw" />
+483-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+483-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+484                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbw" />
+484-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+484-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+485                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbw" />
+485-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+485-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+486                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbw" />
+486-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+486-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+487                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbw" />
+487-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+487-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+488                <data android:pathPattern="/.*\\.pbz" />
+488-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+488-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+489                <data android:pathPattern="/.*\\..*\\.pbz" />
+489-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+489-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+490                <data android:pathPattern="/.*\\..*\\..*\\.pbz" />
+490-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+490-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+491                <data android:pathPattern="/.*\\..*\\..*\\..*\\.pbz" />
+491-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+491-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+492                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.pbz" />
+492-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+492-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+493                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.pbz" />
+493-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+493-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+494                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbz" />
+494-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+494-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+495                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbz" />
+495-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+495-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+496                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbz" />
+496-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+496-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+497                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbz" />
+497-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+497-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+498                <data android:pathPattern="/.*\\.pbl" />
+498-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+498-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+499                <data android:pathPattern="/.*\\..*\\.pbl" />
+499-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+499-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+500                <data android:pathPattern="/.*\\..*\\..*\\.pbl" />
+500-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+500-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+501                <data android:pathPattern="/.*\\..*\\..*\\..*\\.pbl" />
+501-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+501-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+502                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.pbl" />
+502-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+502-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+503                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.pbl" />
+503-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+503-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+504                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbl" />
+504-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+504-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+505                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbl" />
+505-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+505-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+506                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbl" />
+506-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+506-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+507                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.pbl" />
+507-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+507-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:321:23-53
+508            </intent-filter>
+509
+510            <!-- to receive the firmwares from the download content provider -->
+511            <intent-filter>
+511-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:497:13-503:29
+512                <action android:name="android.intent.action.VIEW" />
+512-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:309:17-69
+512-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:309:25-66
+513
+514                <category android:name="android.intent.category.DEFAULT" />
+514-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:17-76
+514-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:27-73
+515
+516                <data android:mimeType="application/octet-stream" />
+516-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+516-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:23-45
+517            </intent-filter>
+518
+519            <!-- to receive firmwares from the download content provider if recognized as zip -->
+520            <intent-filter>
+520-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:506:13-513:29
+521                <action android:name="android.intent.action.VIEW" />
+521-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:309:17-69
+521-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:309:25-66
+522
+523                <category android:name="android.intent.category.DEFAULT" />
+523-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:17-76
+523-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:27-73
+524
+525                <data android:mimeType="application/zip" />
+525-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+525-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:23-45
+526                <data android:mimeType="application/x-zip-compressed" />
+526-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+526-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:23-45
+527            </intent-filter>
+528
+529            <!-- to receive files from the "share" intent -->
+530            <intent-filter>
+530-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:516:13-522:29
+531                <action android:name="android.intent.action.SEND" />
+531-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:517:17-69
+531-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:517:25-66
+532
+533                <category android:name="android.intent.category.DEFAULT" />
+533-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:17-76
+533-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:27-73
+534
+535                <data android:mimeType="*/*" />
+535-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+535-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:23-45
+536            </intent-filter>
+537        </activity>
+538        <activity
+538-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:524:9-533:20
+539            android:name="nodomain.freeyourgadget.gadgetbridge.activities.app_specific_notifications.AppSpecificNotificationSettingsActivity"
+539-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:526:13-106
+540            android:exported="false"
+540-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:525:13-37
+541            android:label="@string/prefs_wena3_notification_per_app_settings_title"
+541-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:527:13-84
+542            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.devicesettings.DeviceSettingsActivity" >
+542-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:528:13-91
+543            <intent-filter>
+543-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:529:13-532:29
+544                <action android:name=".SonyWena3PerAppNotificationSettingsActivity" />
+545
+546                <category android:name="android.intent.category.DEFAULT" />
+546-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:17-76
+546-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:27-73
+547            </intent-filter>
+548        </activity>
+549        <activity
+549-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:534:9-539:15
+550            android:name="nodomain.freeyourgadget.gadgetbridge.activities.app_specific_notifications.AppSpecificNotificationSettingsDetailActivity"
+550-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:536:13-112
+551            android:exported="false"
+551-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:535:13-37
+552            android:label="@string/prefs_wena3_notification_per_app_settings_title"
+552-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:537:13-84
+553            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.app_specific_notifications.AppSpecificNotificationSettingsActivity" />
+553-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:538:13-120
+554
+555        <service
+555-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:541:9-544:40
+556            android:name="androidx.work.impl.foreground.SystemForegroundService"
+556-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:542:13-81
+557            android:directBootAware="false"
+557-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:55:13-44
+558            android:enabled="@bool/enable_system_foreground_service_default"
+558-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:56:13-77
+559            android:exported="false"
+559-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:544:13-37
+560            android:foregroundServiceType="dataSync" />
+560-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:543:13-53
+561        <service
+561-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:545:9-557:19
+562            android:name="nodomain.freeyourgadget.gadgetbridge.externalevents.NotificationListener"
+562-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:546:13-64
+563            android:exported="false"
+563-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:549:13-37
+564            android:foregroundServiceType="specialUse"
+564-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:550:13-55
+565            android:label="@string/app_name"
+565-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:547:13-45
+566            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
+566-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:548:13-87
+567            <property
+567-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:551:13-553:108
+568                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+568-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:552:17-76
+569                android:value="Bind to notification listener for capturing and forwarding notifications" />
+569-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:553:17-105
+570
+571            <intent-filter>
+571-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:554:13-556:29
+572                <action android:name="android.service.notification.NotificationListenerService" />
+572-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:555:17-99
+572-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:555:25-96
+573            </intent-filter>
+574        </service>
+575        <service
+575-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:558:9-564:19
+576            android:name="nodomain.freeyourgadget.gadgetbridge.service.NotificationCollectorMonitorService"
+576-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:559:13-72
+577            android:foregroundServiceType="specialUse" >
+577-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:560:13-55
+578            <property
+578-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:551:13-553:108
+579                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+579-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:552:17-76
+580                android:value="Service for capturing and forwarding notifications" />
+580-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:553:17-105
+581        </service>
+582        <service
+582-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:565:9-567:63
+583            android:name="nodomain.freeyourgadget.gadgetbridge.service.DeviceCommunicationService"
+583-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:566:13-63
+584            android:foregroundServiceType="connectedDevice" />
+584-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:567:13-60
+585        <service
+585-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:568:9-571:63
+586            android:name="nodomain.freeyourgadget.gadgetbridge.devices.pinetime.PineTimeDFUService"
+586-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:569:13-64
+587            android:foregroundServiceType="connectedDevice"
+587-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:571:13-60
+588            android:label="PineTime Nordic DFU service" />
+588-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:570:13-56
+589        <service
+589-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:573:9-577:63
+590            android:name="nodomain.freeyourgadget.gadgetbridge.service.btle.BLEScanService"
+590-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:574:13-56
+591            android:enabled="true"
+591-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:575:13-35
+592            android:exported="false"
+592-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:576:13-37
+593            android:foregroundServiceType="connectedDevice" />
+593-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:577:13-60
+594        <service
+594-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:579:9-588:19
+595            android:name="nodomain.freeyourgadget.gadgetbridge.service.GBCompanionDeviceService"
+595-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:580:13-61
+596            android:exported="true"
+596-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:581:13-36
+597            android:label="GB CompanionDevice Service"
+597-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:582:13-55
+598            android:permission="android.permission.BIND_COMPANION_DEVICE_SERVICE" >
+598-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:583:13-82
+599            <intent-filter>
+599-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:585:13-587:29
+600                <action android:name="android.companion.CompanionDeviceService" />
+600-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:586:17-83
+600-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:586:25-80
+601            </intent-filter>
+602        </service>
+603
+604        <receiver
+604-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:590:9-597:20
+605            android:name="nodomain.freeyourgadget.gadgetbridge.externalevents.GenericWeatherReceiver"
+605-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:591:13-66
+606            android:enabled="true"
+606-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:592:13-35
+607            android:exported="false" >
+607-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:593:13-37
+608            <intent-filter>
+608-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:594:13-596:29
+609                <action android:name="nodomain.freeyourgadget.gadgetbridge.ACTION_GENERIC_WEATHER" />
+609-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:595:17-102
+609-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:595:25-99
+610            </intent-filter>
+611        </receiver>
+612        <receiver
+612-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:599:9-608:20
+613            android:name="nodomain.freeyourgadget.gadgetbridge.externalevents.AutoStartReceiver"
+613-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:600:13-61
+614            android:exported="false"
+614-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:602:13-37
+615            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+615-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:601:13-75
+616            <intent-filter>
+616-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:603:13-607:29
+617                <action android:name="android.intent.action.BOOT_COMPLETED" />
+617-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:604:17-79
+617-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:604:25-76
+618
+619                <category android:name="android.intent.category.DEFAULT" />
+619-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:17-76
+619-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:27-73
+620
+621                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+621-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:606:17-83
+621-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:606:25-81
+622            </intent-filter>
+623        </receiver>
+624        <receiver
+624-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:610:9-622:20
+625            android:name="nodomain.freeyourgadget.gadgetbridge.externalevents.BluetoothStateChangeReceiver"
+625-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:611:13-72
+626            android:exported="true"
+626-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:612:13-36
+627            android:permission="android.permission.BLUETOOTH,android.permission.BLUETOOTH_ADMIN" >
+627-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:613:13-97
+628            <intent-filter>
+628-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:614:13-621:29
+629                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+629-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:615:17-89
+629-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:615:25-86
+630                <action android:name="android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED" />
+630-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:616:17-100
+630-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:616:25-97
+631                <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
+631-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:618:17-88
+631-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:618:25-85
+632                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />
+632-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:619:17-91
+632-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:619:25-88
+633                <action android:name="android.bluetooth.device.action.ACL_DISCONNECT_REQUESTED" />
+633-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:620:17-99
+633-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:620:25-96
+634            </intent-filter>
+635        </receiver>
+636        <receiver
+636-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:624:9-630:20
+637            android:name="nodomain.freeyourgadget.gadgetbridge.service.receivers.GBMusicControlReceiver"
+637-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:625:13-69
+638            android:exported="false" >
+638-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:626:13-37
+639            <intent-filter>
+639-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:627:13-629:29
+640                <action android:name="nodomain.freeyourgadget.gadgetbridge.musiccontrol" />
+640-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:628:17-92
+640-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:628:25-89
+641            </intent-filter>
+642        </receiver>
+643        <receiver
+643-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:631:9-637:20
+644            android:name="nodomain.freeyourgadget.gadgetbridge.service.receivers.GBCallControlReceiver"
+644-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:632:13-68
+645            android:exported="false" >
+645-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:633:13-37
+646            <intent-filter>
+646-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:634:13-636:29
+647                <action android:name="nodomain.freeyourgadget.gadgetbridge.callcontrol" />
+647-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:635:17-91
+647-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:635:25-88
+648            </intent-filter>
+649        </receiver>
+650        <!--
+651            forcing the DebugActivity to portrait mode avoids crashes with the progress
+652            dialog when changing orientation
+653        -->
+654        <activity
+654-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:642:9-647:57
+655            android:name="nodomain.freeyourgadget.gadgetbridge.activities.DebugActivity"
+655-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:643:13-53
+656            android:label="@string/title_activity_debug"
+656-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:644:13-57
+657            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2"
+657-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:645:13-69
+658            android:screenOrientation="portrait"
+658-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:646:13-49
+659            android:windowSoftInputMode="stateHidden" />
+659-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:647:13-54
+660        <activity
+660-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:648:9-652:57
+661            android:name="nodomain.freeyourgadget.gadgetbridge.activities.AboutActivity"
+661-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:649:13-53
+662            android:label="@string/about_activity_title"
+662-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:650:13-57
+663            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2"
+663-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:651:13-69
+664            android:windowSoftInputMode="stateHidden" />
+664-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:652:13-54
+665        <activity
+665-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:653:9-657:57
+666            android:name="nodomain.freeyourgadget.gadgetbridge.activities.licenses.LicensesActivity"
+666-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:654:13-65
+667            android:label="@string/open_source_licenses"
+667-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:655:13-57
+668            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.AboutActivity"
+668-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:656:13-67
+669            android:windowSoftInputMode="stateHidden" />
+669-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:657:13-54
+670        <activity
+670-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:658:9-662:57
+671            android:name="nodomain.freeyourgadget.gadgetbridge.activities.OpenFwAppInstallerActivity"
+671-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:659:13-66
+672            android:label="@string/open_fw_installer_info_text_title"
+672-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:660:13-70
+673            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2"
+673-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:661:13-69
+674            android:windowSoftInputMode="stateHidden" />
+674-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:662:13-54
+675        <activity
+675-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:663:9-666:72
+676            android:name="nodomain.freeyourgadget.gadgetbridge.activities.BatteryInfoActivity"
+676-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:664:13-59
+677            android:label="@string/battery_detail_activity_title"
+677-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:665:13-66
+678            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+678-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:666:13-69
+679        <activity
+679-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:668:9-672:57
+680            android:name="nodomain.freeyourgadget.gadgetbridge.activities.workouts.WorkoutDetailsActivity"
+680-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:669:13-71
+681            android:label="@string/activity_summary_detail"
+681-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:670:13-60
+682            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.workouts.WorkoutListActivity"
+682-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:671:13-82
+683            android:windowSoftInputMode="stateHidden" />
+683-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:672:13-54
+684        <activity
+684-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:673:9-677:48
+685            android:name="nodomain.freeyourgadget.gadgetbridge.activities.ActivitySummariesFilter"
+685-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:674:13-63
+686            android:excludeFromRecents="true"
+686-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:677:13-46
+687            android:label="@string/activity_filter_filter_title"
+687-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:675:13-65
+688            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.workouts.WorkoutListActivity" />
+688-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:676:13-82
+689        <activity
+689-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:679:9-683:57
+690            android:name="nodomain.freeyourgadget.gadgetbridge.activities.DataManagementActivity"
+690-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:680:13-62
+691            android:label="@string/title_activity_db_management"
+691-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:681:13-65
+692            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2"
+692-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:682:13-69
+693            android:windowSoftInputMode="stateHidden" />
+693-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:683:13-54
+694        <activity
+694-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:684:9-688:57
+695            android:name="nodomain.freeyourgadget.gadgetbridge.activities.NotificationManagementActivity"
+695-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:685:13-70
+696            android:label="@string/title_activity_notification_management"
+696-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:686:13-75
+697            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2"
+697-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:687:13-69
+698            android:windowSoftInputMode="stateHidden" />
+698-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:688:13-54
+699        <activity
+699-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:689:9-692:72
+700            android:name="nodomain.freeyourgadget.gadgetbridge.activities.discovery.DiscoveryActivityV2"
+700-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:690:13-69
+701            android:label="@string/title_activity_discovery"
+701-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:691:13-61
+702            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+702-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:692:13-69
+703        <activity
+703-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:693:9-696:86
+704            android:name="nodomain.freeyourgadget.gadgetbridge.activities.AuthKeyActivity"
+704-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:694:13-55
+705            android:label="@string/pref_title_authkey"
+705-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:695:13-55
+706            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.discovery.DiscoveryActivityV2" />
+706-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:696:13-83
+707        <activity
+707-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:697:9-699:70
+708            android:name="nodomain.freeyourgadget.gadgetbridge.activities.AndroidPairingActivity"
+708-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:698:13-62
+709            android:label="@string/title_activity_android_pairing" />
+709-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:699:13-67
+710        <activity
+710-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:700:9-705:72
+711            android:name="nodomain.freeyourgadget.gadgetbridge.devices.banglejs.AppsManagementActivity"
+711-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:701:13-68
+712            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|layoutDirection|uiMode"
+712-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:704:13-106
+713            android:label="@string/title_activity_appmanager"
+713-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:702:13-62
+714            android:launchMode="singleTop"
+714-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:703:13-43
+715            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+715-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:705:13-69
+716        <activity
+716-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:706:9-711:72
+717            android:name="nodomain.freeyourgadget.gadgetbridge.activities.multipoint.MultipointPairingActivity"
+717-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:707:13-76
+718            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|layoutDirection|uiMode"
+718-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:710:13-106
+719            android:label="@string/bluetooth_multipoint_pairing"
+719-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:708:13-65
+720            android:launchMode="singleTop"
+720-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:709:13-43
+721            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+721-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:711:13-69
+722        <activity
+722-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:712:9-714:70
+723            android:name="nodomain.freeyourgadget.gadgetbridge.devices.miband.MiBandPairingActivity"
+723-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:713:13-65
+724            android:label="@string/title_activity_mi_band_pairing" />
+724-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:714:13-67
+725        <activity
+725-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:715:9-717:69
+726            android:name="nodomain.freeyourgadget.gadgetbridge.devices.pebble.PebblePairingActivity"
+726-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:716:13-65
+727            android:label="@string/title_activity_pebble_pairing" />
+727-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:717:13-66
+728        <activity
+728-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:718:9-721:86
+729            android:name="nodomain.freeyourgadget.gadgetbridge.devices.evenrealities.G1PairingActivity"
+729-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:719:13-68
+730            android:label="@string/title_activity_even_realities_g1_pairing"
+730-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:720:13-77
+731            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.discovery.DiscoveryActivityV2" />
+731-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:721:13-83
+732        <activity
+732-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:722:9-725:86
+733            android:name="nodomain.freeyourgadget.gadgetbridge.devices.gree.GreeAcPairingActivity"
+733-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:723:13-63
+734            android:label="@string/devicetype_gree_ac"
+734-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:724:13-55
+735            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.discovery.DiscoveryActivityV2" />
+735-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:725:13-83
+736        <activity
+736-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:726:9-728:69
+737            android:name="nodomain.freeyourgadget.gadgetbridge.devices.watch9.Watch9PairingActivity"
+737-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:727:13-65
+738            android:label="@string/title_activity_watch9_pairing" />
+738-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:728:13-66
+739        <activity
+739-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:729:9-731:73
+740            android:name="nodomain.freeyourgadget.gadgetbridge.devices.watch9.Watch9CalibrationActivity"
+740-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:730:13-69
+741            android:label="@string/title_activity_watch9_calibration" />
+741-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:731:13-70
+742        <activity
+742-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:732:9-734:69
+743            android:name="nodomain.freeyourgadget.gadgetbridge.devices.lenovo.LenovoWatchPairingActivity"
+743-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:733:13-70
+744            android:label="@string/title_activity_watch9_pairing" />
+744-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:734:13-66
+745        <activity
+745-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:735:9-737:78
+746            android:name="nodomain.freeyourgadget.gadgetbridge.devices.lenovo.LenovoWatchCalibrationActivity"
+746-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:736:13-74
+747            android:label="@string/title_activity_LenovoWatch_calibration" />
+747-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:737:13-75
+748        <activity
+748-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:738:9-741:72
+749            android:name="nodomain.freeyourgadget.gadgetbridge.activities.charts.ActivityChartsActivity"
+749-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:739:13-69
+750            android:label="@string/title_activity_charts"
+750-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:740:13-58
+751            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+751-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:741:13-69
+752        <activity
+752-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:742:9-745:72
+753            android:name="nodomain.freeyourgadget.gadgetbridge.activities.ConfigureAlarms"
+753-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:743:13-55
+754            android:label="@string/title_activity_set_alarm"
+754-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:744:13-61
+755            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+755-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:745:13-69
+756        <activity
+756-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:746:9-749:72
+757            android:name="nodomain.freeyourgadget.gadgetbridge.activities.ConfigureReminders"
+757-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:747:13-58
+758            android:label="@string/title_activity_set_reminders"
+758-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:748:13-65
+759            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+759-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:749:13-69
+760        <activity
+760-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:750:9-753:72
+761            android:name="nodomain.freeyourgadget.gadgetbridge.activities.ConfigureContacts"
+761-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:751:13-57
+762            android:label="@string/title_activity_set_contacts"
+762-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:752:13-64
+763            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+763-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:753:13-69
+764        <activity
+764-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:754:9-757:72
+765            android:name="nodomain.freeyourgadget.gadgetbridge.activities.widgets.WidgetScreensListActivity"
+765-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:755:13-73
+766            android:label="@string/menuitem_widgets"
+766-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:756:13-53
+767            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+767-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:757:13-69
+768        <activity
+768-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:758:9-761:72
+769            android:name="nodomain.freeyourgadget.gadgetbridge.activities.ConfigureWorldClocks"
+769-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:759:13-60
+770            android:label="@string/pref_world_clocks_title"
+770-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:760:13-60
+771            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+771-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:761:13-69
+772        <activity
+772-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:762:9-765:72
+773            android:name="nodomain.freeyourgadget.gadgetbridge.activities.devicesettings.DeviceSettingsActivity"
+773-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:763:13-77
+774            android:label="@string/title_activity_device_specific_settings"
+774-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:764:13-76
+775            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+775-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:765:13-69
+776        <activity
+776-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:766:9-770:52
+777            android:name="nodomain.freeyourgadget.gadgetbridge.activities.AlarmDetails"
+777-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:767:13-52
+778            android:label="@string/title_activity_alarm_details"
+778-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:768:13-65
+779            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ConfigureAlarms"
+779-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:769:13-69
+780            android:screenOrientation="portrait" />
+780-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:770:13-49
+781        <activity
+781-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:771:9-776:58
+782            android:name="nodomain.freeyourgadget.gadgetbridge.activities.ReminderDetails"
+782-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:772:13-55
+783            android:label="@string/title_activity_reminder_details"
+783-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:773:13-68
+784            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ConfigureReminders"
+784-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:774:13-72
+785            android:screenOrientation="portrait"
+785-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:775:13-49
+786            android:windowSoftInputMode="adjustResize" />
+786-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:776:13-55
+787        <activity
+787-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:777:9-782:58
+788            android:name="nodomain.freeyourgadget.gadgetbridge.activities.ContactDetails"
+788-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:778:13-54
+789            android:label="@string/title_activity_contact_details"
+789-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:779:13-67
+790            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ConfigureReminders"
+790-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:780:13-72
+791            android:screenOrientation="portrait"
+791-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:781:13-49
+792            android:windowSoftInputMode="adjustResize" />
+792-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:782:13-55
+793        <activity
+793-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:783:9-788:58
+794            android:name="nodomain.freeyourgadget.gadgetbridge.activities.widgets.WidgetScreenDetailsActivity"
+794-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:784:13-75
+795            android:label="@string/widget_screen"
+795-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:785:13-50
+796            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.widgets.WidgetScreensListActivity"
+796-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:786:13-87
+797            android:screenOrientation="portrait"
+797-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:787:13-49
+798            android:windowSoftInputMode="adjustResize" />
+798-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:788:13-55
+799        <activity
+799-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:789:9-794:58
+800            android:name="nodomain.freeyourgadget.gadgetbridge.activities.WorldClockDetails"
+800-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:790:13-57
+801            android:label="@string/title_activity_world_clock_details"
+801-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:791:13-71
+802            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ConfigureWorldClocks"
+802-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:792:13-74
+803            android:screenOrientation="portrait"
+803-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:793:13-49
+804            android:windowSoftInputMode="adjustResize" />
+804-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:794:13-55
+805        <activity
+805-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:795:9-798:72
+806            android:name="nodomain.freeyourgadget.gadgetbridge.activities.VibrationActivity"
+806-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:796:13-57
+807            android:label="@string/title_activity_vibration"
+807-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:797:13-61
+808            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+808-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:798:13-69
+809        <activity
+809-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:799:9-803:67
+810            android:name="nodomain.freeyourgadget.gadgetbridge.activities.NotificationFilterActivity"
+810-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:800:13-66
+811            android:label="@string/title_activity_notification_filter"
+811-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:801:13-71
+812            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.AppBlacklistActivity"
+812-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:802:13-74
+813            android:windowSoftInputMode="stateHidden|adjustPan" />
+813-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:803:13-64
+814        <activity
+814-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:804:9-806:42
+815            android:name="nodomain.freeyourgadget.gadgetbridge.activities.FindPhoneActivity"
+815-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:805:13-57
+816            android:label="Find Phone" />
+816-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:806:13-39
+817
+818        <provider
+818-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:808:9-811:39
+819            android:name="nodomain.freeyourgadget.gadgetbridge.contentprovider.PebbleContentProvider"
+819-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:809:13-66
+820            android:authorities="@string/pebble_content_provider"
+820-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:810:13-66
+821            android:exported="true" />
+821-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:811:13-36
+822        <provider
+823            android:name="androidx.core.content.FileProvider"
+823-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:814:13-62
+824            android:authorities="nodomain.freeyourgadget.gadgetbridge.screenshot_provider"
+824-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:815:13-71
+825            android:exported="false"
+825-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:816:13-37
+826            android:grantUriPermissions="true" >
+826-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:817:13-47
+827            <meta-data
+827-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:818:13-820:56
+828                android:name="android.support.FILE_PROVIDER_PATHS"
+828-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:819:17-67
+829                android:resource="@xml/shared_paths" />
+829-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:820:17-53
+830        </provider>
+831
+832        <receiver
+832-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:823:9-835:20
+833            android:name="nodomain.freeyourgadget.gadgetbridge.SleepAlarmWidget"
+833-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:824:13-45
+834            android:exported="false"
+834-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:826:13-37
+835            android:label="@string/appwidget_sleep_alarm_widget_label" >
+835-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:825:13-71
+836            <intent-filter>
+836-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:827:13-830:29
+837                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+837-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:828:17-84
+837-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:828:25-81
+838                <action android:name="nodomain.freeyourgadget.gadgetbridge.SLEEP_ALARM_WIDGET_CLICK" />
+838-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:829:17-104
+838-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:829:25-101
+839            </intent-filter>
+840
+841            <meta-data
+841-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:832:13-834:67
+842                android:name="android.appwidget.provider"
+842-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:833:17-58
+843                android:resource="@xml/sleep_alarm_widget_info" />
+843-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:834:17-64
+844        </receiver>
+845        <receiver
+845-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:836:9-850:20
+846            android:name="nodomain.freeyourgadget.gadgetbridge.Widget"
+846-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:837:13-35
+847            android:exported="false"
+847-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:839:13-37
+848            android:label="@string/widget_listing_label" >
+848-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:838:13-57
+849            <intent-filter>
+849-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:840:13-845:29
+850                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+850-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:828:17-84
+850-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:828:25-81
+851                <action android:name="android.appwidget.action.APPWIDGET_DELETED" />
+851-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:842:17-85
+851-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:842:25-82
+852                <action android:name="android.appwidget.action.APPWIDGET_DISABLED" />
+852-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:843:17-86
+852-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:843:25-83
+853                <action android:name="nodomain.freeyourgadget.gadgetbridge.WidgetClick" />
+853-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:844:17-91
+853-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:844:25-88
+854            </intent-filter>
+855
+856            <meta-data
+856-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:832:13-834:67
+857                android:name="android.appwidget.provider"
+857-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:833:17-58
+858                android:resource="@xml/widget_info" />
+858-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:834:17-64
+859        </receiver>
+860
+861        <activity
+861-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:852:9-856:67
+862            android:name="nodomain.freeyourgadget.gadgetbridge.activities.WidgetAlarmsActivity"
+862-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:853:13-60
+863            android:excludeFromRecents="true"
+863-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:854:13-46
+864            android:launchMode="singleInstance"
+864-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:855:13-48
+865            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+865-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:856:13-64
+866        <activity
+866-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:858:9-863:20
+867            android:name="nodomain.freeyourgadget.gadgetbridge.activities.WidgetConfigurationActivity"
+867-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:858:19-73
+868            android:exported="false" >
+868-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:859:13-37
+869            <intent-filter>
+869-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:860:13-862:29
+870                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+870-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:861:17-86
+870-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:861:25-84
+871            </intent-filter>
+872        </activity>
+873        <activity
+873-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:865:9-870:20
+874            android:name="nodomain.freeyourgadget.gadgetbridge.activities.SleepAlarmWidgetConfigurationActivity"
+874-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:865:19-83
+875            android:exported="false" >
+875-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:866:13-37
+876            <intent-filter>
+876-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:860:13-862:29
+877                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+877-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:861:17-86
+877-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:861:25-84
+878            </intent-filter>
+879        </activity>
+880        <activity
+880-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:872:9-892:20
+881            android:name="nodomain.freeyourgadget.gadgetbridge.activities.ExternalPebbleJSActivity"
+881-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:873:13-64
+882            android:allowTaskReparenting="true"
+882-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:874:13-48
+883            android:clearTaskOnLaunch="true"
+883-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:875:13-45
+884            android:exported="true"
+884-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:879:13-36
+885            android:label="@string/app_configure"
+885-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:876:13-50
+886            android:launchMode="singleTask"
+886-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:877:13-44
+887            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.appmanager.AppManagerActivity" >
+887-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:878:13-83
+888            <meta-data
+888-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:880:13-882:99
+889                android:name="android.support.PARENT_ACTIVITY"
+889-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:881:17-63
+890                android:value="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+890-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:882:17-96
+891
+892            <intent-filter>
+892-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:884:13-891:29
+893                <action android:name="android.intent.action.VIEW" />
+893-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:309:17-69
+893-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:309:25-66
+894
+895                <category android:name="android.intent.category.DEFAULT" />
+895-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:17-76
+895-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:27-73
+896                <category android:name="android.intent.category.BROWSABLE" />
+896-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:888:17-78
+896-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:888:27-75
+897
+898                <data android:scheme="gadgetbridge" />
+898-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+898-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:317:23-44
+899            </intent-filter>
+900        </activity>
+901        <activity
+901-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:894:9-898:94
+902            android:name="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.QHybridConfigActivity"
+902-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:895:13-66
+903            android:exported="true"
+903-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:897:13-36
+904            android:label="@string/qhybrid_title_watchface"
+904-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:896:13-60
+905            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.devicesettings.DeviceSettingsActivity" />
+905-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:898:13-91
+906        <activity
+906-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:899:9-903:83
+907            android:name="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.QHybridAppChoserActivity"
+907-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:900:13-69
+908            android:exported="true"
+908-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:902:13-36
+909            android:label="@string/qhybrid_title_apps"
+909-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:901:13-55
+910            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.QHybridConfigActivity" />
+910-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:903:13-80
+911        <activity
+911-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:904:9-908:72
+912            android:name="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.HRConfigActivity"
+912-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:905:13-61
+913            android:exported="true"
+913-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:907:13-36
+914            android:label="@string/qhybrid_title_watchface"
+914-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:906:13-60
+915            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+915-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:908:13-69
+916        <activity
+916-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:909:9-911:78
+917            android:name="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.WidgetSettingsActivity"
+917-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:909:19-73
+918            android:label="@string/add_widget"
+918-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:910:13-47
+919            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.HRConfigActivity" />
+919-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:911:13-75
+920        <activity
+920-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:912:9-916:78
+921            android:name="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.ImageEditActivity"
+921-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:913:13-62
+922            android:exported="true"
+922-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:915:13-36
+923            android:label="@string/qhybrid_title_background_image"
+923-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:914:13-67
+924            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.HRConfigActivity" />
+924-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:916:13-75
+925        <activity
+925-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:917:9-921:77
+926            android:name="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.FileManagementActivity"
+926-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:918:13-67
+927            android:exported="true"
+927-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:920:13-36
+928            android:label="@string/qhybrid_title_file_management"
+928-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:919:13-66
+929            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.HRConfigActivity" />
+929-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:921:13-75
+930        <activity
+930-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:922:9-926:78
+931            android:name="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.AppsManagementActivity"
+931-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:923:13-67
+932            android:exported="true"
+932-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:925:13-36
+933            android:label="@string/qhybrid_title_apps_management"
+933-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:924:13-66
+934            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.HRConfigActivity" />
+934-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:926:13-75
+935        <activity
+935-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:927:9-930:78
+936            android:name="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.CalibrationActivity"
+936-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:928:13-64
+937            android:label="@string/qhybrid_title_calibration"
+937-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:929:13-62
+938            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.HRConfigActivity" />
+938-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:930:13-75
+939        <activity
+939-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:931:9-934:97
+940            android:name="nodomain.freeyourgadget.gadgetbridge.devices.withingssteelhr.WithingsCalibrationActivity"
+940-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:932:13-80
+941            android:label="@string/qhybrid_title_calibration"
+941-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:933:13-62
+942            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.devices.withingssteelhr.WithingsCalibrationActivity" />
+942-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:934:13-94
+943        <activity
+943-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:935:9-938:78
+944            android:name="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.CommuteActionsActivity"
+944-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:936:13-67
+945            android:label="@string/qhybrid_pref_title_actions"
+945-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:937:13-63
+946            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.HRConfigActivity" />
+946-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:938:13-75
+947        <activity
+947-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:939:9-944:86
+948            android:name="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.HybridHRWatchfaceDesignerActivity"
+948-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:940:13-78
+949            android:label="@string/qhybrid_title_watchface_designer"
+949-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:941:13-69
+950            android:launchMode="singleTop"
+950-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:943:13-43
+951            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.appmanager.AppManagerActivity"
+951-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:944:13-83
+952            android:screenOrientation="portrait" />
+952-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:942:13-49
+953        <activity
+953-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:945:9-948:95
+954            android:name="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.HybridHRWatchfaceSettingsActivity"
+954-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:946:13-78
+955            android:label="@string/watchface_dialog_title_settings"
+955-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:947:13-68
+956            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.HybridHRWatchfaceDesignerActivity" />
+956-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:948:13-92
+957        <activity
+957-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:949:9-952:95
+958            android:name="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.HybridHRWatchfaceWidgetActivity"
+958-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:950:13-76
+959            android:label="@string/watchface_dialog_title_widget"
+959-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:951:13-66
+960            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.devices.qhybrid.HybridHRWatchfaceDesignerActivity" />
+960-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:952:13-92
+961        <activity
+961-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:954:9-956:39
+962            android:name="nodomain.freeyourgadget.gadgetbridge.devices.um25.Activity.DataActivity"
+962-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:955:13-63
+963            android:exported="true" />
+963-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:956:13-36
+964        <activity
+964-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:958:9-960:39
+965            android:name="nodomain.freeyourgadget.gadgetbridge.devices.supercars.ControlActivity"
+965-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:959:13-62
+966            android:exported="true" />
+966-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:960:13-36
+967        <activity
+967-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:962:9-965:39
+968            android:name="nodomain.freeyourgadget.gadgetbridge.devices.marstek.SolarEquipmentStatusActivity"
+968-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:963:13-73
+969            android:exported="true"
+969-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:965:13-36
+970            android:label="Solar Equipment Status" />
+970-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:964:13-51
+971        <activity
+971-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:967:9-969:39
+972            android:name="nodomain.freeyourgadget.gadgetbridge.devices.binary_sensor.activity.DataActivity"
+972-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:968:13-72
+973            android:exported="true" />
+973-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:969:13-36
+974        <activity
+974-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:971:9-983:20
+975            android:name="nodomain.freeyourgadget.gadgetbridge.activities.GpxReceiverActivity"
+975-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:972:13-59
+976            android:exported="true"
+976-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:976:13-36
+977            android:label="@string/gpx_receiver_activity_title"
+977-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:973:13-64
+978            android:screenOrientation="portrait"
+978-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:974:13-49
+979            android:windowSoftInputMode="stateHidden" >
+979-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:975:13-54
+980            <intent-filter>
+980-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:977:13-982:29
+981                <action android:name="android.intent.action.SEND" />
+981-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:517:17-69
+981-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:517:25-66
+982                <action android:name="android.intent.action.SEND_MULTIPLE" />
+982-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:979:17-78
+982-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:979:25-75
+983
+984                <category android:name="android.intent.category.DEFAULT" />
+984-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:17-76
+984-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:27-73
+985
+986                <data android:mimeType="*/*" />
+986-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+986-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:23-45
+987            </intent-filter>
+988        </activity>
+989        <activity
+989-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:985:9-995:20
+990            android:name="nodomain.freeyourgadget.gadgetbridge.activities.TextReceiverActivity"
+990-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:986:13-60
+991            android:excludeFromRecents="true"
+991-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:987:13-46
+992            android:exported="true"
+992-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:989:13-36
+993            android:label="@string/text_receiver_activity_title" >
+993-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:988:13-65
+994            <intent-filter>
+994-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:990:13-994:29
+995                <action android:name="android.intent.action.SEND" />
+995-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:517:17-69
+995-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:517:25-66
+996
+997                <category android:name="android.intent.category.DEFAULT" />
+997-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:17-76
+997-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:158:27-73
+998
+999                <data android:mimeType="text/plain" />
+999-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:17-48
+999-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:313:23-45
+1000            </intent-filter>
+1001        </activity>
+1002        <activity
+1002-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:997:9-1000:20
+1003            android:name="nodomain.freeyourgadget.gadgetbridge.activities.WakeActivity"
+1003-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:998:13-52
+1004            android:label="WakeActivity" >
+1004-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:999:13-41
+1005        </activity>
+1006        <activity
+1006-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1002:9-1005:38
+1007            android:name="nodomain.freeyourgadget.gadgetbridge.externalevents.opentracks.OpenTracksController"
+1007-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1003:13-75
+1008            android:exported="true"
+1008-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1005:13-36
+1009            android:label="OpenTracks controller and intent receiver" />
+1009-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1004:13-70
+1010        <activity
+1010-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1007:9-1010:72
+1011            android:name="nodomain.freeyourgadget.gadgetbridge.activities.dashboard.DashboardCalendarActivity"
+1011-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1008:13-75
+1012            android:label="@string/menuitem_calendar"
+1012-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1009:13-54
+1013            android:parentActivityName="nodomain.freeyourgadget.gadgetbridge.activities.ControlCenterv2" />
+1013-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1010:13-69
+1014        <activity
+1014-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1012:9-1015:40
+1015            android:name="nodomain.freeyourgadget.gadgetbridge.activities.CameraActivity"
+1015-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1013:13-54
+1016            android:exported="false"
+1016-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1015:13-37
+1017            android:launchMode="singleInstance" />
+1017-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1014:13-48
+1018        <activity
+1018-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1017:9-1020:39
+1019            android:name="nodomain.freeyourgadget.gadgetbridge.devices.cycling_sensor.activity.CyclingLiveDataActivity"
+1019-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1018:13-84
+1020            android:exported="true"
+1020-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1020:13-36
+1021            android:launchMode="singleInstance" />
+1021-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:1019:13-48
+1022
+1023        <service
+1023-->[androidx.camera:camera-camera2:1.5.0] /home/ismael/.gradle/caches/8.14.3/transforms/78bbbaeb15db4ca82d74ce5f324c5ba7/transformed/camera-camera2-1.5.0/AndroidManifest.xml:24:9-33:19
+1024            android:name="androidx.camera.core.impl.MetadataHolderService"
+1024-->[androidx.camera:camera-camera2:1.5.0] /home/ismael/.gradle/caches/8.14.3/transforms/78bbbaeb15db4ca82d74ce5f324c5ba7/transformed/camera-camera2-1.5.0/AndroidManifest.xml:25:13-75
+1025            android:enabled="false"
+1025-->[androidx.camera:camera-camera2:1.5.0] /home/ismael/.gradle/caches/8.14.3/transforms/78bbbaeb15db4ca82d74ce5f324c5ba7/transformed/camera-camera2-1.5.0/AndroidManifest.xml:26:13-36
+1026            android:exported="false" >
+1026-->[androidx.camera:camera-camera2:1.5.0] /home/ismael/.gradle/caches/8.14.3/transforms/78bbbaeb15db4ca82d74ce5f324c5ba7/transformed/camera-camera2-1.5.0/AndroidManifest.xml:27:13-37
+1027            <meta-data
+1027-->[androidx.camera:camera-camera2:1.5.0] /home/ismael/.gradle/caches/8.14.3/transforms/78bbbaeb15db4ca82d74ce5f324c5ba7/transformed/camera-camera2-1.5.0/AndroidManifest.xml:30:13-32:89
+1028                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+1028-->[androidx.camera:camera-camera2:1.5.0] /home/ismael/.gradle/caches/8.14.3/transforms/78bbbaeb15db4ca82d74ce5f324c5ba7/transformed/camera-camera2-1.5.0/AndroidManifest.xml:31:17-103
+1029                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+1029-->[androidx.camera:camera-camera2:1.5.0] /home/ismael/.gradle/caches/8.14.3/transforms/78bbbaeb15db4ca82d74ce5f324c5ba7/transformed/camera-camera2-1.5.0/AndroidManifest.xml:32:17-86
+1030        </service>
+1031
+1032        <provider
+1032-->[androidx.emoji2:emoji2:1.3.0] /home/ismael/.gradle/caches/8.14.3/transforms/a764ae219f8ae88555c82a18f190749a/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+1033            android:name="androidx.startup.InitializationProvider"
+1033-->[androidx.emoji2:emoji2:1.3.0] /home/ismael/.gradle/caches/8.14.3/transforms/a764ae219f8ae88555c82a18f190749a/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+1034            android:authorities="nodomain.freeyourgadget.gadgetbridge.androidx-startup"
+1034-->[androidx.emoji2:emoji2:1.3.0] /home/ismael/.gradle/caches/8.14.3/transforms/a764ae219f8ae88555c82a18f190749a/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+1035            android:exported="false" >
+1035-->[androidx.emoji2:emoji2:1.3.0] /home/ismael/.gradle/caches/8.14.3/transforms/a764ae219f8ae88555c82a18f190749a/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+1036            <meta-data
+1036-->[androidx.emoji2:emoji2:1.3.0] /home/ismael/.gradle/caches/8.14.3/transforms/a764ae219f8ae88555c82a18f190749a/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+1037                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+1037-->[androidx.emoji2:emoji2:1.3.0] /home/ismael/.gradle/caches/8.14.3/transforms/a764ae219f8ae88555c82a18f190749a/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+1038                android:value="androidx.startup" />
+1038-->[androidx.emoji2:emoji2:1.3.0] /home/ismael/.gradle/caches/8.14.3/transforms/a764ae219f8ae88555c82a18f190749a/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+1039            <meta-data
+1039-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:34:13-36:52
+1040                android:name="androidx.work.WorkManagerInitializer"
+1040-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:35:17-68
+1041                android:value="androidx.startup" />
+1041-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:36:17-49
+1042            <meta-data
+1042-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/ismael/.gradle/caches/8.14.3/transforms/82891d9fdc4301bcee1bd818ccf67eb1/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+1043                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+1043-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/ismael/.gradle/caches/8.14.3/transforms/82891d9fdc4301bcee1bd818ccf67eb1/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+1044                android:value="androidx.startup" />
+1044-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/ismael/.gradle/caches/8.14.3/transforms/82891d9fdc4301bcee1bd818ccf67eb1/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+1045            <meta-data
+1045-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+1046                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+1046-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+1047                android:value="androidx.startup" />
+1047-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+1048        </provider>
+1049
+1050        <service
+1050-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:39:9-45:35
+1051            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+1051-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:40:13-88
+1052            android:directBootAware="false"
+1052-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:41:13-44
+1053            android:enabled="@bool/enable_system_alarm_service_default"
+1053-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:42:13-72
+1054            android:exported="false" />
+1054-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:43:13-37
+1055        <service
+1055-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:46:9-52:35
+1056            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+1056-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:47:13-84
+1057            android:directBootAware="false"
+1057-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:48:13-44
+1058            android:enabled="@bool/enable_system_job_service_default"
+1058-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:49:13-70
+1059            android:exported="true"
+1059-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:50:13-36
+1060            android:permission="android.permission.BIND_JOB_SERVICE" />
+1060-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:51:13-69
+1061
+1062        <receiver
+1062-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:61:9-66:35
+1063            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+1063-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:62:13-88
+1064            android:directBootAware="false"
+1064-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:63:13-44
+1065            android:enabled="true"
+1065-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:64:13-35
+1066            android:exported="false" />
+1066-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:65:13-37
+1067        <receiver
+1067-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:67:9-77:20
+1068            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+1068-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:68:13-106
+1069            android:directBootAware="false"
+1069-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:69:13-44
+1070            android:enabled="false"
+1070-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:70:13-36
+1071            android:exported="false" >
+1071-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:71:13-37
+1072            <intent-filter>
+1072-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:73:13-76:29
+1073                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+1073-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:74:17-87
+1073-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:74:25-84
+1074                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+1074-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:75:17-90
+1074-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:75:25-87
+1075            </intent-filter>
+1076        </receiver>
+1077        <receiver
+1077-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:78:9-88:20
+1078            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+1078-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:79:13-104
+1079            android:directBootAware="false"
+1079-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:80:13-44
+1080            android:enabled="false"
+1080-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:81:13-36
+1081            android:exported="false" >
+1081-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:82:13-37
+1082            <intent-filter>
+1082-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:84:13-87:29
+1083                <action android:name="android.intent.action.BATTERY_OKAY" />
+1083-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:85:17-77
+1083-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:85:25-74
+1084                <action android:name="android.intent.action.BATTERY_LOW" />
+1084-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:86:17-76
+1084-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:86:25-73
+1085            </intent-filter>
+1086        </receiver>
+1087        <receiver
+1087-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:89:9-99:20
+1088            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+1088-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:90:13-104
+1089            android:directBootAware="false"
+1089-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:91:13-44
+1090            android:enabled="false"
+1090-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:92:13-36
+1091            android:exported="false" >
+1091-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:93:13-37
+1092            <intent-filter>
+1092-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:95:13-98:29
+1093                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+1093-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:96:17-83
+1093-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:96:25-80
+1094                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+1094-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:97:17-82
+1094-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:97:25-79
+1095            </intent-filter>
+1096        </receiver>
+1097        <receiver
+1097-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:100:9-109:20
+1098            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+1098-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:101:13-103
+1099            android:directBootAware="false"
+1099-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:102:13-44
+1100            android:enabled="false"
+1100-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:103:13-36
+1101            android:exported="false" >
+1101-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:104:13-37
+1102            <intent-filter>
+1102-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:106:13-108:29
+1103                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+1103-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:107:17-79
+1103-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:107:25-76
+1104            </intent-filter>
+1105        </receiver>
+1106        <receiver
+1106-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:110:9-121:20
+1107            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+1107-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:111:13-88
+1108            android:directBootAware="false"
+1108-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:112:13-44
+1109            android:enabled="false"
+1109-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:113:13-36
+1110            android:exported="false" >
+1110-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:114:13-37
+1111            <intent-filter>
+1111-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:116:13-120:29
+1112                <action android:name="android.intent.action.BOOT_COMPLETED" />
+1112-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:604:17-79
+1112-->/home/ismael/Gadgetbridge-EmpaticaE4/app/src/main/AndroidManifest.xml:604:25-76
+1113                <action android:name="android.intent.action.TIME_SET" />
+1113-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:118:17-73
+1113-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:118:25-70
+1114                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+1114-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:119:17-81
+1114-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:119:25-78
+1115            </intent-filter>
+1116        </receiver>
+1117        <receiver
+1117-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:122:9-131:20
+1118            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+1118-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:123:13-99
+1119            android:directBootAware="false"
+1119-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:124:13-44
+1120            android:enabled="@bool/enable_system_alarm_service_default"
+1120-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:125:13-72
+1121            android:exported="false" >
+1121-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:126:13-37
+1122            <intent-filter>
+1122-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:128:13-130:29
+1123                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+1123-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:129:17-98
+1123-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:129:25-95
+1124            </intent-filter>
+1125        </receiver>
+1126        <receiver
+1126-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:132:9-142:20
+1127            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+1127-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:133:13-78
+1128            android:directBootAware="false"
+1128-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:134:13-44
+1129            android:enabled="true"
+1129-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:135:13-35
+1130            android:exported="true"
+1130-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:136:13-36
+1131            android:permission="android.permission.DUMP" >
+1131-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:137:13-57
+1132            <intent-filter>
+1132-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:139:13-141:29
+1133                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+1133-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:140:17-88
+1133-->[androidx.work:work-runtime:2.10.5] /home/ismael/.gradle/caches/8.14.3/transforms/ad9b5420e361e3b06e643be0f2b3142b/transformed/work-runtime-2.10.5/AndroidManifest.xml:140:25-85
+1134            </intent-filter>
+1135        </receiver>
+1136
+1137        <uses-library
+1137-->[androidx.window:window:1.0.0] /home/ismael/.gradle/caches/8.14.3/transforms/ac4b842c5bab47a4cf7f52f64d08260b/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+1138            android:name="androidx.window.extensions"
+1138-->[androidx.window:window:1.0.0] /home/ismael/.gradle/caches/8.14.3/transforms/ac4b842c5bab47a4cf7f52f64d08260b/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+1139            android:required="false" />
+1139-->[androidx.window:window:1.0.0] /home/ismael/.gradle/caches/8.14.3/transforms/ac4b842c5bab47a4cf7f52f64d08260b/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+1140        <uses-library
+1140-->[androidx.window:window:1.0.0] /home/ismael/.gradle/caches/8.14.3/transforms/ac4b842c5bab47a4cf7f52f64d08260b/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+1141            android:name="androidx.window.sidecar"
+1141-->[androidx.window:window:1.0.0] /home/ismael/.gradle/caches/8.14.3/transforms/ac4b842c5bab47a4cf7f52f64d08260b/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+1142            android:required="false" />
+1142-->[androidx.window:window:1.0.0] /home/ismael/.gradle/caches/8.14.3/transforms/ac4b842c5bab47a4cf7f52f64d08260b/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+1143
+1144        <service
+1144-->[androidx.room:room-runtime:2.6.1] /home/ismael/.gradle/caches/8.14.3/transforms/697350dc3061a4d64a634c6415f72e58/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+1145            android:name="androidx.room.MultiInstanceInvalidationService"
+1145-->[androidx.room:room-runtime:2.6.1] /home/ismael/.gradle/caches/8.14.3/transforms/697350dc3061a4d64a634c6415f72e58/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+1146            android:directBootAware="true"
+1146-->[androidx.room:room-runtime:2.6.1] /home/ismael/.gradle/caches/8.14.3/transforms/697350dc3061a4d64a634c6415f72e58/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+1147            android:exported="false" />
+1147-->[androidx.room:room-runtime:2.6.1] /home/ismael/.gradle/caches/8.14.3/transforms/697350dc3061a4d64a634c6415f72e58/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+1148
+1149        <receiver
+1149-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+1150            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+1150-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+1151            android:directBootAware="false"
+1151-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+1152            android:enabled="true"
+1152-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+1153            android:exported="true"
+1153-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+1154            android:permission="android.permission.DUMP" >
+1154-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+1155            <intent-filter>
+1155-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+1156                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+1156-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+1156-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+1157            </intent-filter>
+1158            <intent-filter>
+1158-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+1159                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+1159-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+1159-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+1160            </intent-filter>
+1161            <intent-filter>
+1161-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+1162                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+1162-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+1162-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+1163            </intent-filter>
+1164            <intent-filter>
+1164-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+1165                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+1165-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+1165-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/ismael/.gradle/caches/8.14.3/transforms/90b079c7fa276f4012c5c9e5dcee75bd/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+1166            </intent-filter>
+1167        </receiver>
+1168    </application>
+1169
+1170</manifest>

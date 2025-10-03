@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "LINKED_RESOURCES_BINARY_FORMAT",
+    "kind": "Directory"
+  },
+  "applicationId": "nodomain.freeyourgadget.gadgetbridge",
+  "variantName": "mainlineDebug",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 242,
+      "versionName": "0.87.1",
+      "outputFile": "linked-resources-binary-format-mainlineDebug.ap_"
+    }
+  ],
+  "elementType": "File"
+}
